@@ -3,6 +3,7 @@ require_once 'configBlade.php';
 
 $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+if ($path === "/") $path = "/index";
 // $routes = [
 //     '/index' => 'controllers/index.php',
 //     '/aboutUs' => 'controllers/aboutUs.php',
@@ -12,5 +13,6 @@ $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 //     '/roomsGrid' => 'controllers/roomsGrid.php',
 //     '/roomList' => 'controllers/roomsList.php'
 // ];
+require('configMySQL.php');
 
 require("controllers/$path.php");

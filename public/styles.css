@@ -62,7 +62,11 @@ font-family: 'Roboto', sans-serif; */
   line-height: 18px;
 }
 
-.pagesSecundaryTitle, .pageDetailsRelated__title, .pageDetailsCancellation__title, .pageDetailsPerson__title, .pageDetailsAmenities__title {
+.pagesSecundaryTitle,
+.pageDetailsRelated__title,
+.pageDetailsCancellation__title,
+.pageDetailsPerson__title,
+.pageDetailsAmenities__title {
   font: normal 400 24px/24px "Old Standard TT", serif;
   font-size: 30px;
   line-height: 30px;
@@ -625,7 +629,11 @@ font-family: 'Roboto', sans-serif; */
 }
 .aboutUs__container {
   padding: 38px 20px 160px;
-  background: linear-gradient(135deg, rgb(248, 248, 248) 60%, rgba(248, 248, 248, 0) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(248, 248, 248) 60%,
+    rgba(248, 248, 248, 0) 100%
+  );
 }
 .aboutUs__subtitle {
   margin-bottom: 35px;
@@ -706,7 +714,11 @@ font-family: 'Roboto', sans-serif; */
   }
   .aboutUs__container {
     padding: 38px 20px 160px 185px;
-    background: linear-gradient(135deg, rgb(248, 248, 248) 50%, rgba(248, 248, 248, 0) 100%);
+    background: linear-gradient(
+      135deg,
+      rgb(248, 248, 248) 50%,
+      rgba(248, 248, 248, 0) 100%
+    );
   }
   .aboutUs__title {
     max-width: 450px;
@@ -885,10 +897,16 @@ font-family: 'Roboto', sans-serif; */
   .rooms__slider__swiper-img {
     width: 100%;
   }
-  .rooms__slider__swiper > .swiper-wrapper > .swiper-slide-active > .rooms__slider__foot {
+  .rooms__slider__swiper
+    > .swiper-wrapper
+    > .swiper-slide-active
+    > .rooms__slider__foot {
     opacity: 1;
   }
-  .rooms__slider__swiper > .swiper-wrapper > .swiper-slide-active > .rooms__slider__header {
+  .rooms__slider__swiper
+    > .swiper-wrapper
+    > .swiper-slide-active
+    > .rooms__slider__header {
     opacity: 1;
   }
   .rooms__slider__swiper > .swiper-button-lock {
@@ -1019,14 +1037,16 @@ font-family: 'Roboto', sans-serif; */
   top: -18px;
   right: 0;
 }
-.facilities__slider__title, .pageAboutFacility__slider__title {
+.facilities__slider__title,
+.pageAboutFacility__slider__title {
   font: normal 400 24px/24px "Old Standard TT", serif;
   font-size: 30px;
   line-height: 30px;
   letter-spacing: -0.9px;
   color: #222;
 }
-.facilities__slider__text, .pageAboutFacility__slider__text {
+.facilities__slider__text,
+.pageAboutFacility__slider__text {
   font: normal 400 26px/28.3px "Archivo", sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -1664,7 +1684,8 @@ font-family: 'Roboto', sans-serif; */
 .pageRoomsGrid__selectInput {
   margin-right: auto;
 }
-.pageRoomsGrid__selectInput__select, .pageRoomsList__selectInput__select {
+.pageRoomsGrid__selectInput__select,
+.pageRoomsList__selectInput__select {
   border: none;
   outline: none;
   padding: 25px;
@@ -1678,7 +1699,8 @@ font-family: 'Roboto', sans-serif; */
   font-family: "Archivo", sans-serif;
   cursor: pointer;
 }
-.pageRoomsGrid__selectInput__option, .pageRoomsList__selectInput__option {
+.pageRoomsGrid__selectInput__option,
+.pageRoomsList__selectInput__option {
   background-color: #f8f8f8;
   color: #222;
 }
@@ -1688,7 +1710,9 @@ font-family: 'Roboto', sans-serif; */
 .pageRoomsGrid__img > img {
   width: 100%;
 }
-.pageRoomsGrid__iconsBar, .pageDetailsRelated__iconsBar, .pageRoomsList__details-iconsBar {
+.pageRoomsGrid__iconsBar,
+.pageDetailsRelated__iconsBar,
+.pageRoomsList__details-iconsBar {
   width: 256px;
   padding: 13px 0;
   position: relative;
@@ -1706,27 +1730,31 @@ font-family: 'Roboto', sans-serif; */
   text-align: center;
   margin: 0 auto;
 }
-.pageRoomsGrid__legend-title, .pageRoomsList__details-title {
+.pageRoomsGrid__legend-title,
+.pageRoomsList__details-title {
   font: normal 400 24px/24px "Old Standard TT", serif;
   font-size: 28px;
   line-height: 36px;
   letter-spacing: -1.2px;
   color: #222;
 }
-.pageRoomsGrid__legend-text, .pageRoomsList__details-text {
+.pageRoomsGrid__legend-text,
+.pageRoomsList__details-text {
   font: normal 400 16px/26px "Roboto", sans-serif;
   font-size: 14px;
   line-height: 24px;
   margin: 12px auto 0;
   color: #777;
 }
-.pageRoomsGrid__legend-price, .pageRoomsList__price {
+.pageRoomsGrid__legend-price,
+.pageRoomsList__price {
   font: normal 700 14px/15.2px "Archivo", sans-serif;
   font-size: 16px;
   line-height: 41px;
   color: #bead8e;
 }
-.pageRoomsGrid__legend-price > a, .pageRoomsList__price > a {
+.pageRoomsGrid__legend-price > a,
+.pageRoomsList__price > a {
   color: #bdbdbd;
 }
 .pageRoomsGrid__paginateBar {
@@ -1975,7 +2003,8 @@ font-family: 'Roboto', sans-serif; */
   font-size: 14px;
   line-height: 15.2px;
 }
-.pageDetailsAvailability__form-date, .pageDetailsAvailability__form-text {
+.pageDetailsAvailability__form-date,
+.pageDetailsAvailability__form-text {
   border: none;
   outline: none;
   background-color: #f8f8f8;
@@ -1988,7 +2017,8 @@ font-family: 'Roboto', sans-serif; */
   max-width: 330px;
   cursor: text;
 }
-.pageDetailsAvailability__form-date::-webkit-calendar-picker-indicator, .pageDetailsAvailability__form-text::-webkit-calendar-picker-indicator {
+.pageDetailsAvailability__form-date::-webkit-calendar-picker-indicator,
+.pageDetailsAvailability__form-text::-webkit-calendar-picker-indicator {
   background-image: url("./images/calendarGreyIcon.svg");
   position: absolute;
   right: 20px;
@@ -2083,20 +2113,24 @@ font-family: 'Roboto', sans-serif; */
   border-color: #f1f1f1;
   margin: 13px 0 35px;
 }
-.pageDetailsAmenities__container, .pageOffersList__amenities-container {
+.pageDetailsAmenities__container,
+.pageOffersList__amenities-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px 15px;
 }
-.pageDetailsAmenities__items, .pageOffersList__amenities-item {
+.pageDetailsAmenities__items,
+.pageOffersList__amenities-item {
   display: flex;
   justify-content: flex-start;
   gap: 8px;
 }
-.pageDetailsAmenities__items-img, .pageOffersList__amenities-item > img {
+.pageDetailsAmenities__items-img,
+.pageOffersList__amenities-item > img {
   width: 16px;
 }
-.pageDetailsAmenities__items-text, .pageOffersList__amenities-text {
+.pageDetailsAmenities__items-text,
+.pageOffersList__amenities-text {
   font: normal 500 15px/17.6px "Roboto", sans-serif;
   color: #777;
 }
@@ -2108,7 +2142,8 @@ font-family: 'Roboto', sans-serif; */
     width: 100%;
     max-width: 770px;
   }
-  .pageDetailsAmenities__container, .pageOffersList__amenities-container {
+  .pageDetailsAmenities__container,
+  .pageOffersList__amenities-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -2551,11 +2586,13 @@ font-family: 'Roboto', sans-serif; */
   max-width: 375px;
   margin: 0 auto;
 }
-.pageContactForm__form__item, .pageContactForm__form__item-textarea {
+.pageContactForm__form__item,
+.pageContactForm__form__item-textarea {
   width: 100%;
   position: relative;
 }
-.pageContactForm__form__item > input, .pageContactForm__form__item-textarea > input,
+.pageContactForm__form__item > input,
+.pageContactForm__form__item-textarea > input,
 .pageContactForm__form__item textarea,
 .pageContactForm__form__item-textarea textarea {
   width: 100%;
@@ -2567,7 +2604,8 @@ font-family: 'Roboto', sans-serif; */
   font: normal 400 16px/26px "Roboto", sans-serif;
   line-height: 18.75px;
 }
-.pageContactForm__form__item > img, .pageContactForm__form__item-textarea > img {
+.pageContactForm__form__item > img,
+.pageContactForm__form__item-textarea > img {
   position: absolute;
   left: 20px;
   top: 25px;
