@@ -78,10 +78,10 @@
         <h2 class="pageDetailsAmenities__title">Amenities</h2>
         <hr />
         <div class="pageDetailsAmenities__container">
-            @foreach ($amenities as $amenity)
+            @foreach ($amenities as $name=>$img)
             <div class="pageDetailsAmenities__items">
-                <img class="pageDetailsAmenities__items-img" src="{{$amenity['img']}}" alt="" />
-                <p class="pageDetailsAmenities__items-text">{{$amenity['name']}}</p>
+                <img class="pageDetailsAmenities__items-img" src="{{$img}}" alt="" />
+                <p class="pageDetailsAmenities__items-text">{{$name}}</p>
             </div>
             @endforeach
         </div>

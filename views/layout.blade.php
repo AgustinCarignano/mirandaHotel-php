@@ -21,10 +21,10 @@
                     <div></div>
                 </div>
                 <div class="header__navbar__brand">
-                    <a href="/index">
+                    <a href="/">
                         <span class="header__navbar__brand-logo">H</span>
                     </a>
-                    <a href="/index">
+                    <a href="/">
                         <p class="header__navbar__brand-text"><b>HOTEL</b> MIRANDA</p>
                     </a>
                 </div>
@@ -80,7 +80,7 @@
                     </h4>
                     <h1 class="homeTitle pagesHeader__title">@yield('pageTitle')</h1>
                     <div class="pagesHeader__breadcrumbs">
-                        <a href="index">Home &nbsp</a>
+                        <a href="/">Home &nbsp</a>
                         |
                         <a class="active" href="{{$_SERVER['REQUEST_URI']}}">&nbsp @yield('pageBread')</a>
                     </div>

@@ -10,13 +10,13 @@
     @foreach ($rooms as $room)
     <div class="pageOffersList__container">
         <figure class="pageOffersList__img">
-            <a href="roomDetails"><img class="pageOffersList__img-photo" src="{{$room['photos'][0]}}" alt="hotel room" /></a>
+            <a href="roomDetails?id={{$room['_id']}}"><img class="pageOffersList__img-photo" src="{{$room['photos'][0]}}" alt="hotel room" /></a>
             <div class="pageOffersList__img-prices">
             </div>
         </figure>
         <div class="pageOffersList__detailContainer">
             <h4 class="homeSubtitle pageOffersList__subtitle">{{$room['roomType']}}</h4>
-            <h2 class="homeTitle pageOffersList__title"><a href="roomDetails">Luxury {{$room['roomType']}}</a></h2>
+            <h2 class="homeTitle pageOffersList__title"><a href="roomDetails?id={{$room['_id']}}">Luxury {{$room['roomType']}}</a></h2>
             <div class="pageOffersList__prices">
                 <div class="pageOffersList__prices-oldPrice">
                     <p>{{$room['price']}}</p>
@@ -39,7 +39,7 @@
                 </div>
                 @endforeach
             </div>
-            <a href="roomDetails">
+            <a href="roomDetails?id={{$room['_id']}}">
                 <button class="button button-variant1">BOOK NOW</button>
             </a>
         </div>
@@ -68,7 +68,7 @@
                         <div class="pageRoomsGrid__legend pageOfferPopular__slider__legend">
                             <h3 class="pageRoomsGrid__legend-title">{{$room['roomType']}}</h3>
                             <p class="pageRoomsGrid__legend-text">
-                                {{$room['description']}}
+                                {{text_limit($room['description'],80,".")}}
                             </p>
                             <p class="pageRoomsGrid__legend-price">
                                 {{$room['price']}}/Night &nbsp<a href="roomDetails">&nbsp Book Now</a>

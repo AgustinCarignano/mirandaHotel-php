@@ -3,16 +3,15 @@ require_once 'configBlade.php';
 
 $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-if ($path === "/") $path = "/index";
-// $routes = [
-//     '/index' => 'controllers/index.php',
-//     '/aboutUs' => 'controllers/aboutUs.php',
-//     '/contact' => 'controllers/contact.php',
-//     '/offers' => 'controllers/offers.php',
-//     '/roomDetails' => 'controllers/roomDetails.php',
-//     '/roomsGrid' => 'controllers/roomsGrid.php',
-//     '/roomList' => 'controllers/roomsList.php'
-// ];
-require('configMySQL.php');
+$routes = [
+    '/' => 'controllers/index.php',
+    '/aboutUs' => 'controllers/aboutUs.php',
+    '/contact' => 'controllers/contact.php',
+    '/offers' => 'controllers/offers.php',
+    '/roomDetails' => 'controllers/roomDetails.php',
+    '/roomsGrid' => 'controllers/roomsGrid.php',
+    '/roomsList' => 'controllers/roomsList.php'
+];
+require_once('configMySQL.php');
 
-require("controllers/$path.php");
+require($routes[$path]);

@@ -21,7 +21,7 @@
     </div>
     <div class="banner__backgroundForm">
         <div class="banner__formContainer">
-            <form action="roomList" class="banner__form">
+            <form action="roomsList" class="banner__form">
                 <div class="banner__form__inputContainer">
                     <label class="banner__form__label" for="arrivalDate">Arrival Date</label>
                     <input class="banner__form__dateInput" type="date" name="arrivalDate" id="arrivalDate" value="2023-03-24" />
@@ -100,7 +100,7 @@
                                 {{$room['roomType']}}
                             </h3>
                             <p class="rooms__slider__foot-text">
-                                {{$room['description']}}
+                                {{text_limit($room['description'],200,"...")}}
                             </p>
                         </div>
                         <p class="rooms__slider__foot-price">

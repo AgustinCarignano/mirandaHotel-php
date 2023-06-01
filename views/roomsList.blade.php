@@ -34,7 +34,7 @@
                 </div>
                 <h3 class="pageRoomsList__details-title">{{$room['roomType']}}</h3>
                 <p class="pageRoomsList__details-text">
-                    {{$room['description']}}
+                    {{text_limit($room['description'],200,"...")}}
                 </p>
             </div>
             <div class="pageRoomsList__price">
@@ -48,14 +48,13 @@
         @endforeach
     </div>
     <div class="pageRoomsGrid__paginateBar">
-        <span class="">
-            << /span>
-                <span class="">1</span>
-                <span class="active">2</span>
-                <span class="">3</span>
-                <span class="">...</span>
-                <span class="">10</span>
-                <span class="">></span>
+        <span class="">{{'<'}}</span>
+        <span class="">1</span>
+        <span class="active">2</span>
+        <span class="">3</span>
+        <span class="">...</span>
+        <span class="">10</span>
+        <span class="">{{'>'}}</span>
     </div>
 </section>
 @endsection

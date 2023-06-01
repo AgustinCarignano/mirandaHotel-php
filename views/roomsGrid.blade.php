@@ -34,10 +34,10 @@
             <div class="pageRoomsGrid__legend">
                 <h3 class="pageRoomsGrid__legend-title">{{$room['roomType']}}</h3>
                 <p class="pageRoomsGrid__legend-text">
-                    {{$room['description']}}
+                    {{text_limit($room['description'],140,"...")}}
                 </p>
                 <p class="pageRoomsGrid__legend-price">
-                    ${{$room['price']}}/Night &nbsp<a href="roomDetails">&nbsp Book Now</a>
+                    ${{$room['price']}}/Night &nbsp<a href="roomDetails?id={{$room['_id']}}">&nbsp Book Now</a>
                 </p>
             </div>
         </div>
