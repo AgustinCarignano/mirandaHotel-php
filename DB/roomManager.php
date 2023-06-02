@@ -1,26 +1,9 @@
 <?php
 
-require_once('env.php');
+require_once 'config.php';
 
-class RoomsManager
+class RoomManager extends DB_Manager
 {
-    public $conn;
-
-    public function __construct()
-    {
-        global $DB;
-        $this->conn = new mysqli($DB['SERVER'], $DB['USER'], $DB['PASS'], $DB['NAME']);
-    }
-
-    public function executeQuery($query, $param = [])
-    {
-        $stmt = $this->conn->prepare($query);
-        count($param) !== 0 && $stmt->bind_param($param['type'], ...$param['value']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result;
-    }
-
     public function getAllRooms($limit = 6, $page = 1)
     {
         $offset = ($page - 1) * $limit;
@@ -75,4 +58,4 @@ class RoomsManager
     }
 }
 
-$roomManager = new RoomsManager();
+$roomManager = new RoomManager($connection);

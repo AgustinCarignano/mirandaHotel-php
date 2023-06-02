@@ -1,4 +1,30 @@
 <?php
-//require_once 'configBlade.php';
 
-echo $blade->run("contact"); // it calls /views/hello.blade.php
+require_once './DB/contactManager.php';
+
+$contact = ['fullName' => '', 'email' => '', 'phone' => '', 'subject' => '', 'message' => ''];
+$input_error = ['fullName' => false, 'email' => false, 'phone' => false, 'subject' => false, 'message' => false];
+$post_error = false;
+$success_post = false;
+
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    $isCorrectForm = true;
+    foreach ($_POST as $key => $value) {
+        $contact[$key] = $value;
+        if (!$value) {
+            $input_error[$key] = true;
+            $isCorrectForm = false;
+            $post_error = true;
+        }
+    }
+    if ($isCorrectForm) {
+        $contactManager->postContact($contact);
+        foreach ($contact as $key => $value) {
+            $contact[$key] = '';
+        }
+        $post_error = false;
+        $success_post = true;
+    }
+}
+
+echo $blade->run("contact", ['contact' => $contact, 'inputErrors' => $input_error, 'formSent' => $success_post, 'hasError' => $post_error]);

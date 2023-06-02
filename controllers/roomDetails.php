@@ -1,7 +1,5 @@
 <?php
-require_once 'utils/helpObjects.php';
-require_once 'configMySQL.php';
-//prettyPrint(parse_url($_SERVER['REQUEST_URI']));
+
 $query = explode("=", parse_url($_SERVER['REQUEST_URI'])['query']);
 
 try {

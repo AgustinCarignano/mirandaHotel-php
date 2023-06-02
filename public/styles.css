@@ -2585,6 +2585,7 @@ font-family: 'Roboto', sans-serif; */
   justify-items: center;
   max-width: 375px;
   margin: 0 auto;
+  position: relative;
 }
 .pageContactForm__form__item,
 .pageContactForm__form__item-textarea {
@@ -2617,6 +2618,57 @@ font-family: 'Roboto', sans-serif; */
 .pageContactForm__form__item-textarea > textarea {
   padding: 25px 20px 25px 50px;
   resize: none;
+}
+.pageContactForm__form__inputError {
+  outline: solid 1px red;
+}
+.pageContactForm__form__errorMsg {
+  font-size: 14px;
+  position: absolute;
+  color: red;
+  top: -30px;
+  left: 0;
+}
+.pageContactForm__modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(119, 119, 119, 0.8039215686);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pageContactForm__modalContainer-hidden {
+  display: none;
+}
+.pageContactForm__modal {
+  background-color: #f8f8f8;
+  padding: 50px 60px 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pageContactForm__modal__title {
+  font: normal 700 14px/15.2px "Archivo", sans-serif;
+  font-size: 24px;
+  letter-spacing: -0.54px;
+  color: #222;
+  text-align: center;
+}
+.pageContactForm__modal__text {
+  font: normal 400 26px/28.3px "Archivo", sans-serif;
+  font-size: 18px;
+  color: #777;
+  text-align: center;
+  margin: 30px 0;
+}
+.pageContactForm__modal__btn {
+  padding: 15px;
+  width: 60%;
 }
 
 @media (min-width: 1000px) {
