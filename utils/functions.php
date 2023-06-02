@@ -6,3 +6,11 @@ function text_limit($str, $limit, $endText)
     }
     return $str;
 }
+
+function prettyPrint($data)
+{
+    echo '<pre>';
+    var_dump($data);
+    echo '</pre>';
+    die();
+}

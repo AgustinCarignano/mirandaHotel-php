@@ -42,7 +42,7 @@
                     ${{$room['price']}}<small>/Night</small>
                 </p>
                 <hr />
-                <a class="pageRoomsList__price-link" href="roomDetails">Book Now</a>
+                <a class="pageRoomsList__price-link" href="roomDetails?id={{$room['_id']}}">Book Now</a>
             </div>
         </div>
         @endforeach

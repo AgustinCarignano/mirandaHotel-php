@@ -2,28 +2,6 @@
 
 require_once('env.php');
 
-$servername = $DB['SERVER'];
-$username = $DB['USER'];
-$password = $DB['PASS'];
-$database = $DB['NAME'];
-
-function prettyPrint($data)
-{
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
-    die();
-}
-
-// function queryDB($conection, $query, $param = [])
-// {
-//     $stmt = $conection->prepare($query);
-//     count($param) !== 0 && $stmt->bind_param($param['type'], $param['value']);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     return $result;
-// }
-
 class RoomsManager
 {
     public $conn;
@@ -37,7 +15,7 @@ class RoomsManager
     public function executeQuery($query, $param = [])
     {
         $stmt = $this->conn->prepare($query);
-        count($param) !== 0 && $stmt->bind_param($param['type'], $param['value']);
+        count($param) !== 0 && $stmt->bind_param($param['type'], ...$param['value']);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result;
@@ -53,14 +31,13 @@ class RoomsManager
     public function getRoom($id)
     {
         try {
-            $result = $this->executeQuery("select * from rooms where _id = ?", ['type' => 'i', 'value' => $id]);
+            $result = $this->executeQuery("select * from rooms where _id = ?", ['type' => 'i', 'value' => [$id]]);
             if ($result->num_rows) {
                 return $this->sanitizateRoom($result)[0];
             } else {
                 throw new Error('404: Room not found');
             }
         } catch (\Throwable $th) {
-            //prettyPrint($th);
             throw $th;
         }
     }
@@ -74,16 +51,16 @@ class RoomsManager
     public function getAvailableRooms($in = "2000-1-1", $out = "2030-12-31")
     {
         $query_occupiedRooms = "select roomId from bookings where 
-            checkIn > '$in' and checkIn < '$out' or 
-            checkOut > '$in' and checkOut < '$out' or
-            checkIn > '$in' and checkOut < '$out' or
-            checkIn < '$in' and checkOut > '$out'";
-        $ocuppied_result = $this->executeQuery($query_occupiedRooms);
-        if ($ocuppied_result->num_rows === 0) return $this->getAllRooms();
+            checkIn > ? and checkIn < ? or 
+            checkOut > ? and checkOut < ? or
+            checkIn > ? and checkOut < ? or
+            checkIn < ? and checkOut > ?";
+        $ocuppied_result = $this->executeQuery($query_occupiedRooms, ['type' => 'ssssssss', 'value' => [$in, $out, $in, $out, $in, $out, $in, $out]]);
+        if ($ocuppied_result->num_rows === 0) return $this->getAllRooms(10, 1);
         for ($ocuppiedRooms = array(); $row = $ocuppied_result->fetch_assoc(); $ocuppiedRooms[] = $row['roomId']);
         $idList = implode(",", $ocuppiedRooms);
-        $query_availables = "select * from rooms where _id not in ($idList)";
-        $available_result = $this->executeQuery($query_availables);
+        $query_availables = "select * from rooms where _id not in (?)";
+        $available_result = $this->executeQuery($query_availables, ['type' => 's', 'value' => $idList]);
         $availableRooms = $this->sanitizateRoom($available_result);
         return $availableRooms;
     }
