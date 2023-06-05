@@ -36,36 +36,38 @@
         <section class="pageDetailsAvailability">
             <h3 class="pageDetailsAvailability__title">Check Availability</h3>
             <div class="pageDetailsAvailability__formContainer">
-                <form class="pageDetailsAvailability__form" id="availabilityForm">
-                    <label class="pageDetailsAvailability__form-label" for="checkIn">Check In</label>
-                    <input class="pageDetailsAvailability__form-date" type="date" name="checkIn" id="detailsCheckIn" value="2023-06-14" />
-                    <label class="pageDetailsAvailability__form-label" for="checkIn">Check Out</label>
-                    <input class="pageDetailsAvailability__form-date" type="date" name="checkOut" id="detailsCheckOut" value="2023-06-16" />
-                    <label class="pageDetailsAvailability__form-label" for="checkIn">Full Name</label>
-                    <input class="pageDetailsAvailability__form-text" type="text" name="fullName" id="detailsFullName" placeholder="Type your name..." />
-                    <label class="pageDetailsAvailability__form-label" for="checkIn">Email</label>
-                    <input class="pageDetailsAvailability__form-text" type="email" name="email" id="detailsEmail" placeholder="Type your email..." />
-                    <label class="pageDetailsAvailability__form-label" for="checkIn">Phone</label>
-                    <input class="pageDetailsAvailability__form-text" type="text" name="phone" id="detailsPhone" placeholder="Type your phone..." />
-                    <label class="pageDetailsAvailability__form-label" for="checkIn">Message (Special resquest)</label>
-                    <textarea class="pageDetailsAvailability__form-text" name="message" id="detailsMessage" cols="30" rows="3" placeholder="Type your message..."></textarea>
+                <form class="pageDetailsAvailability__form" id="availabilityForm" method="post">
+                    <span class="pageDetailsAvailability__form__errorMsg">{{$hasError ? "Error: Check the remark field" : ""}}</span>
+                    <label class="pageDetailsAvailability__form-label" for="detailsCheckIn">Check In</label>
+                    <input class="pageDetailsAvailability__form-date {{$inputErrors['checkIn'] ? 'pageContactForm__form__inputError' : ''}}" type="date" name="checkIn" id="detailsCheckIn" value="{{$booking['checkIn']}}" default="2023-06-14" />
+                    <label class="pageDetailsAvailability__form-label" for="detailsCheckOut">Check Out</label>
+                    <input class="pageDetailsAvailability__form-date {{$inputErrors['checkOut'] ? 'pageContactForm__form__inputError' : ''}}" type="date" name="checkOut" id="detailsCheckOut" value="{{$booking['checkOut']}}" default="2023-06-16" />
+                    <label class="pageDetailsAvailability__form-label" for="detailsGuest">Full Name</label>
+                    <input class="pageDetailsAvailability__form-text {{$inputErrors['guest'] ? 'pageContactForm__form__inputError' : ''}}" type="text" name="guest" id="detailsGuest" value="{{$booking['guest']}}" placeholder="Type your name..." />
+                    <label class="pageDetailsAvailability__form-label" for="detailsEmail">Email</label>
+                    <input class="pageDetailsAvailability__form-text {{$inputErrors['email'] ? 'pageContactForm__form__inputError' : ''}}" type="email" name="email" id="detailsEmail" value="{{$booking['email']}}" placeholder="Type your email..." />
+                    <label class="pageDetailsAvailability__form-label" for="detailsPhone">Phone</label>
+                    <input class="pageDetailsAvailability__form-text {{$inputErrors['phone'] ? 'pageContactForm__form__inputError' : ''}}" type="text" name="phone" id="detailsPhone" value="{{$booking['phone']}}" placeholder="Type your phone..." />
+                    <label class="pageDetailsAvailability__form-label" for="detailsMessage">Message (Special resquest)</label>
+                    <textarea class="pageDetailsAvailability__form-text" name="message" id="detailsMessage" cols="30" rows="3" placeholder="Type your message...">{{$booking['message']}}</textarea>
+                    <input style="display: none" name="roomId" value="{{$room['_id']}}">
                     <input class="button button-variant1 pageDetailsAvailability__form-btn" type="submit" value="CHECK AVAILABILITY" />
                 </form>
-                <div class="pageDetailsAvailability__modalContainer pageDetailsAvailability__modalContainer-hidden" id="availabilityModal">
+                @if ($sentForm)
+                <div class="pageDetailsAvailability__modalContainer" id="availabilityModal">
                     <div class="pageDetailsAvailability__modal">
                         <h2 class="pageDetailsAvailability__modal__title">
-                            ¡Thank you for your request!
+                            {{$postMessage['title']}}
                         </h2>
                         <p class="pageDetailsAvailability__modal__text">
-                            We have received it correctly. <br />
-                            Someone from our Team will get <br />
-                            back to you very soon.
+                            {{$postMessage['content']}}
                         </p>
                         <button class="button button-variant1 pageDetailsAvailability__modal__btn" id="modalBtn">
                             ACEPT
                         </button>
                     </div>
                 </div>
+                @endif
             </div>
         </section>
         <section class="pageDetailsDescription">
@@ -140,4 +142,7 @@
 </div>
 </section>
 </div>
+@endsection
+@section('extraScript')
+<script src="public/JS/booking.js"></script>
 @endsection

@@ -41,11 +41,21 @@ class RoomManager extends DB_Manager
         $ocuppied_result = $this->executeQuery($query_occupiedRooms, ['type' => 'ssssssss', 'value' => [$in, $out, $in, $out, $in, $out, $in, $out]]);
         if ($ocuppied_result->num_rows === 0) return $this->getAllRooms(10, 1);
         for ($ocuppiedRooms = array(); $row = $ocuppied_result->fetch_assoc(); $ocuppiedRooms[] = $row['roomId']);
-        $idList = implode(",", $ocuppiedRooms);
-        $query_availables = "select * from rooms where _id not in (?)";
-        $available_result = $this->executeQuery($query_availables, ['type' => 's', 'value' => $idList]);
+        $length = count($ocuppiedRooms);
+        $query_availables = "select * from rooms where _id not in (" . str_repeat("?, ", $length - 1) . "?)";
+        $available_result = $this->executeQuery($query_availables, ['type' => str_repeat('i', $length), 'value' => $ocuppiedRooms]);
         $availableRooms = $this->sanitizateRoom($available_result);
         return $availableRooms;
+    }
+
+    public function checkAvailability($roomId, $in, $out)
+    {
+        $availables = $this->getAvailableRooms($in, $out);
+        $isAvailable = false;
+        foreach ($availables as $room) {
+            if ($room['_id'] == $roomId) $isAvailable = true;
+        }
+        return $isAvailable;
     }
 
     private function sanitizateRoom($data)

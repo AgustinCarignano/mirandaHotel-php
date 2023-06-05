@@ -18,7 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
     }
     if ($isCorrectForm) {
-        $contactManager->postContact($contact);
+        $sanitizateContact = [];
+        foreach ($contact as $key => $value) {
+            $sanitizateContact[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        $contactManager->postContact($sanitizateContact);
         foreach ($contact as $key => $value) {
             $contact[$key] = '';
         }

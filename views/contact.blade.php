@@ -64,7 +64,7 @@
         </div>
         <input class="button button-variant1" type="submit" value="SEND" />
     </form>
-    <!-- @if ($formSent) -->
+    @if ($formSent)
     <div class="pageContactForm__modalContainer" id="contactModal">
         <div class="pageContactForm__modal">
             <h2 class="pageContactForm__modal__title">
@@ -80,7 +80,7 @@
             </button>
         </div>
     </div>
-    <!-- @endif -->
+    @endif
 </section>
 @endsection
 @section('extraScript')

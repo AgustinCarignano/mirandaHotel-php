@@ -196,3 +196,8 @@ $amenities = [
     'Shop near' => "/public/images/amenities/shopIcon.svg",
     'Towels' => "/public/images/amenities/towelIcons.svg"
 ];
+
+$bookingMessage = [
+    'success' => ['title' => "¡Thank you for your request!", 'content' => "We have received it correctly. Someone from our Team will get back to you very soon."],
+    'notAvailable' => ['title' => "¡We are really sorry!", 'content' => "This room is already occupied. Try selecting another date or choosing another room."]
+];
